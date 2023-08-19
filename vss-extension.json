@@ -1,9 +1,10 @@
 {
     "manifestVersion": 1,
-    "id": "GPTPullRequestReview",
-    "name": "GPT Pull Request Review",
-    "version": "0.12.2",
+    "id": "AIPullRequestReview",
+    "name": "AI Pull Request Review",
+    "version": "0.1.1",
     "publisher": "mustaphalarhrouch",
+    "public" : false,
     "galleryFlags": [
         "Public",
         "Preview"
