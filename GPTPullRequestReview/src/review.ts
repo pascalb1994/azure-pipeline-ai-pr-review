@@ -6,7 +6,7 @@ import { Agent } from 'https';
 import * as tl from "azure-pipelines-task-lib/task";
 
 export async function reviewFile(targetBranch: string, fileName: string, httpsAgent: Agent, apiKey: string, openai: OpenAIApi | undefined, aoiEndpoint: string | undefined) {
-  console.log(`Start reviewing ${fileName} ...`);
+  console.log(`\nStart reviewing ${fileName} ...`);
 
   const defaultOpenAIModel = 'gpt-3.5-turbo';
   const patch = await git.diff([targetBranch, '--', fileName]);

@@ -9,6 +9,9 @@ Installation can be done using [Visual Studio MarketPlace](https://marketplace.v
 
 Add the tasks to your build definition.
 
+For each changed file in the Pull Request a review comment will be left if there any recommended changes
+![example_comment](images/example_comment.png)
+
 ## Setup
 
 ### Give permission to the build service agent

@@ -54,7 +54,10 @@ Once you have added the task to your pipeline, configure it. In the task configu
 
 ### Review Pull Requests
 
-When the build is triggered from a Pull Request, the task will review it. If there is feedback on the changed code, the task will add comments to the Pull Request. If the build is triggered manually, the task will be skipped.
+When the build is triggered from a Pull Request, the task will review it. If there is feedback on the changed code, the task will add comments to the Pull Request.
+![example_comment](images/example_comment.png)
+
+If the build is triggered manually, the task will be skipped.
 
 ## Compatible with Linux Build Agents
 
