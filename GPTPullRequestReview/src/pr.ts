@@ -17,16 +17,18 @@ export async function addCommentToPR(fileName: string, comment: string, httpsAge
     }
   }
 
+  const stringifiedBody = JSON.stringify(body)
+
   const prUrl = `${tl.getVariable('SYSTEM.TEAMFOUNDATIONCOLLECTIONURI')}${tl.getVariable('SYSTEM.TEAMPROJECTID')}/_apis/git/repositories/${tl.getVariable('Build.Repository.Name')}/pullRequests/${tl.getVariable('System.PullRequest.PullRequestId')}/threads?api-version=5.1`
 
   await fetch(prUrl, {
     method: 'POST',
     headers: { 'Authorization': `Bearer ${tl.getVariable('SYSTEM.ACCESSTOKEN')}`, 'Content-Type': 'application/json' },
-    body: JSON.stringify(body),
+    body: stringifiedBody,
     agent: httpsAgent
   });
 
-  console.log(`New comment added.`);
+  console.log(`New comment added.`, stringifiedBody);
 }
 
 export async function deleteExistingComments(httpsAgent: Agent) {

@@ -17,6 +17,10 @@ export async function reviewFile(targetBranch: string, fileName: string, httpsAg
     let choices: any;
 
     if (openai) {
+
+      console.log(`Sending changes to OpenAI:`)
+      console.log(patch)
+
       const response = await openai.createChatCompletion({
         model: tl.getInput('model') || defaultOpenAIModel,
         messages: [
