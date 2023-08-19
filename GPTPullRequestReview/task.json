@@ -1,10 +1,10 @@
 {
-  "id": "b42fa530-c4a6-11ed-87f6-d1f44a1fead1",
-  "name": "GPTPullRequestReview",
-  "friendlyName": "Review PullRequest by GPT",
-  "description": "This task use OpenAi GPT model to review PullRequests",
-  "author": "Mustapha Larhrouch",
-  "helpMarkDown": "[More Information](https://github.com/mlarhrouch/azure-pipeline-gpt-pr-review)",
+  "id": "962a2b6e-0555-477b-b8dc-40a7af3f0c8b",
+  "name": "AIPullRequestReview",
+  "friendlyName": "AI PR Review",
+  "description": "This task use OpenAi API to review and leave comments on PullRequests",
+  "author": "Jacques Saunders",
+  "helpMarkDown": "[More Information](https://github.com/97saundersj/azure-pipeline-ai-pr-review)",
   "category": "Utility",
   "visibility": [
     "Build"
@@ -12,11 +12,11 @@
   "demands": [],
   "version": {
     "Major": "0",
-    "Minor": "12",
-    "Patch": "2"
+    "Minor": "1",
+    "Patch": "5"
   },
   "minimumAgentVersion": "1.95.0",
-  "instanceNameFormat": "GPTPullRequestReview $(message)",
+  "instanceNameFormat": "AIPullRequestReview $(message)",
   "inputs": [
     {
       "name": "api_key",
@@ -54,6 +54,14 @@
       "defaultValue": "false",
       "required": false,
       "helpMarkDown": "Select this option to support self-signed certificate."
+    },
+    {
+      "name": "ai_instructions",
+      "type": "string",
+      "label": "AI Instruction Prompt",
+      "defaultValue": "Act as a code reviewer of a Pull Request, providing feedback on possible bugs and clean code issues.\nYou are provided with the Pull Request changes in a patch format.\nEach patch entry has the commit message in the Subject line followed by the code changes (diffs) in a unidiff format.\n\nAs a code reviewer, your task is:\n- Review only added, edited or deleted lines.\n- If there's no bugs and the changes are correct, write only 'No feedback.'\n- If there's bug or incorrect code changes, don't write 'No feedback.'",
+      "required": true,
+      "helpMarkDown": "Changing this from the default value may cause issues with the review"
     }
   ],
   "execution": {

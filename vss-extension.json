@@ -1,9 +1,9 @@
 {
     "manifestVersion": 1,
     "id": "AIPullRequestReview",
-    "name": "AI Pull Request Review",
-    "version": "0.1.1",
-    "publisher": "mustaphalarhrouch",
+    "name": "AI PR Review",
+    "version": "0.1.4",
+    "publisher": "97Saundersj",
     "public" : false,
     "galleryFlags": [
         "Public",
@@ -14,7 +14,7 @@
             "id": "Microsoft.VisualStudio.Services"
         }
     ],    
-    "description": "A task that review Pull Request using GPT model from OpenAI",
+    "description": "A task that reviews Pull Requests using GPT models from OpenAI",
     "categories": [
         "Azure Pipelines"
     ],
@@ -34,7 +34,7 @@
     ],
     "repository" : {
         "type" : "git",
-        "uri" : "https://github.com/mlarhrouch/azure-pipeline-gpt-pr-review"
+        "uri" : "https://github.com/97saundersj/azure-pipeline-ai-pr-review"
     },
     "content": {
         "details": {
