@@ -10,9 +10,9 @@ Installation can be done using [Visual Studio MarketPlace](https://marketplace.v
 
 Add the tasks to your build definition.
 
+
 When the task is ran comments will be left on each changed file in a Pull Request.
 ![image](https://github.com/97saundersj/azure-pipeline-ai-pr-review/assets/34074715/8541bfdd-5de9-4901-9832-3960fe01b277)
-
 
 ## Setup
 
@@ -20,7 +20,7 @@ When the task is ran comments will be left on each changed file in a Pull Reques
 
 before use this task, make sure that the build service has permissions to contribute to pull requests in your repository :
 
-![contribute_to_pr](https://github.com/mlarhrouch/azure-pipeline-gpt-pr-review/blob/main/images/contribute_to_pr.png?raw=true)
+![contribute_to_pr](https://github.com/97saundersj/azure-pipeline-ai-pr-review/blob/main/images/contribute_to_pr.png?raw=true)
 
 ### Allow Task to access the system token
 
@@ -38,7 +38,7 @@ steps:
 
 Enable the option "Allow scripts to access the OAuth token" in the "Agent job" properties :
 
-![allow_access_token](https://github.com/mlarhrouch/azure-pipeline-gpt-pr-review/blob/main/images/allow_access_token.png?raw=true)
+![allow_access_token](https://github.com/97saundersj/azure-pipeline-ai-pr-review/blob/main/images/allow_access_token.png?raw=true)
 
 ### Azure Open AI service
 
@@ -65,4 +65,4 @@ Found and fixed a bug or improved on something? Contributions are welcome! Pleas
 
 ## License
 
-[MIT](https://raw.githubusercontent.com/mlarhrouch/azure-pipeline-gpt-pr-review/main/LICENSE)
+[MIT](https://raw.githubusercontent.com/97saundersj/azure-pipeline-ai-pr-review/main/LICENSE)
