@@ -1,5 +1,6 @@
 # Use OpenAI GPT model to review Pull Requests for Azure Devops
-A task for Azure DevOps build pipelines to add GPT as PR reviewer
+A task for Azure DevOps build pipelines to add GPT as PR reviewer.
+This is based on https://github.com/mlarhrouch/azure-pipeline-gpt-pr-review but with options for allowing users to view and edit the AI instruction prompt for more transparency and customisation.
 
 ## Installation
 
@@ -9,8 +10,9 @@ Installation can be done using [Visual Studio MarketPlace](https://marketplace.v
 
 Add the tasks to your build definition.
 
-For each changed file in the Pull Request a review comment will be left if there any recommended changes
-![example_comment](images/example_comment.png)
+
+When the task is ran comments will be left on each changed file in a Pull Request.
+![image](https://github.com/97saundersj/azure-pipeline-ai-pr-review/assets/34074715/8541bfdd-5de9-4901-9832-3960fe01b277)
 
 ## Setup
 
@@ -42,6 +44,16 @@ Enable the option "Allow scripts to access the OAuth token" in the "Agent job" p
 
 If you choose to use the Azure Open AI service, you must fill in the endpoint and API key of Azure OpenAI. The format of the endpoint is as follows: https://{XXXXXXXX}.openai.azure.com/openai/deployments/{MODEL_NAME}/chat/completions?api-version={API_VERSION}
 
+### Editing Prompt
+
+By default the prompt is as follows.
+![image](https://github.com/97saundersj/azure-pipeline-ai-pr-review/assets/34074715/5d70b71d-5394-4b1f-a2b7-43aad66f0aea)
+
+It can be customised to your needs.
+For example.
+![image](https://github.com/97saundersj/azure-pipeline-ai-pr-review/assets/34074715/a6737110-2b0b-4b50-a6a9-9820c0875068)
+Will result in this comment being made instead.
+![image](https://github.com/97saundersj/azure-pipeline-ai-pr-review/assets/34074715/d7241613-2e4c-4c94-99ac-242ab1cc334c)
 
 ### OpenAI Models
 
