@@ -61,7 +61,7 @@ In case you don't use Azure Open AI Service, you can choose which model to use, 
 
 ## Contributions
 
-Found and fixed a bug or improved on something? Contributions are welcome! Please target your pull request against the `main` branch or report an issue on [GitHub](https://github.com/mlarhrouch/azure-pipeline-gpt-pr-review/issues) so someone else can try and implement or fix it.
+Found and fixed a bug or improved on something? Contributions are welcome! Please target your pull request against the `main` branch or report an issue on [GitHub](https://github.com/97saundersj/azure-pipeline-ai-pr-review/issues) so someone else can try and implement or fix it.
 
 ## License
 
