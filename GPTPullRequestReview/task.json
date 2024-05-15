@@ -48,6 +48,14 @@
       "helpMarkDown": "Azure OpenApi Endpoint, leave empty to use default endpoint. (optional)"
     },
     {
+      "name": "proxy_url",
+      "type": "string",
+      "label": "Proxy Address",
+      "defaultValue": "",
+      "required": false,
+      "helpMarkDown": "Please add da proxy configuration if necessary. (optional)"
+    },
+    {
       "name": "support_self_signed_certificate",
       "type": "boolean",
       "label": "Support self-signed certificate",
