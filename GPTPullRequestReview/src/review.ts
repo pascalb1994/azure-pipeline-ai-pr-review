@@ -3,11 +3,12 @@ import { git } from './git';
 import { OpenAIApi } from 'openai';
 import { addCommentToPR } from './pr';
 import { Agent } from 'https';
+import { HttpsProxyAgent } from 'https-proxy-agent';
 import * as tl from "azure-pipelines-task-lib/task";
 
-export async function reviewFile(targetBranch: string, fileName: string, httpsAgent: Agent, apiKey: string, openai: OpenAIApi | undefined, aoiEndpoint: string | undefined) {
+export async function reviewFile(targetBranch: string, fileName: string, httpsAgent: Agent, apiKey: string, openai: OpenAIApi | undefined, aoiEndpoint: string | undefined, proxyUrl: string | undefined) {
   console.log(`\nStart reviewing ${fileName} ...`);
-
+  
   const defaultOpenAIModel = 'gpt-3.5-turbo';
   const patch = await git.diff([targetBranch, '--', fileName]);
 
@@ -39,21 +40,39 @@ export async function reviewFile(targetBranch: string, fileName: string, httpsAg
       choices = response.data.choices
     }
     else if (aoiEndpoint) {
-      const request = await fetch(aoiEndpoint, {
-        method: 'POST',
-        headers: { 'api-key': `${apiKey}`, 'Content-Type': 'application/json' },
-        body: JSON.stringify({
-          max_tokens: 500,
-          messages: [{
-            role: "user",
-            content: prompt
-          }]
-        })
-      });
-
-      const response = await request.json();
-
-      choices = response.choices;
+      if(proxyUrl && proxyUrl.length > 0) {
+         const proxyAgent = new HttpsProxyAgent(proxyUrl);
+         const request = await fetch(aoiEndpoint, {
+            method: 'POST',
+            headers: { 'api-key': `${apiKey}`, 'Content-Type': 'application/json' },
+            body: JSON.stringify({
+              max_tokens: 500,
+              messages: [{
+                role: "user",
+                content: prompt
+              }]
+            }),
+            proxyAgent
+          });
+    
+          const response = await request.json();
+          choices = response.choices;
+      } else {      
+        const request = await fetch(aoiEndpoint, {
+          method: 'POST',
+          headers: { 'api-key': `${apiKey}`, 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            max_tokens: 500,
+            messages: [{
+              role: "user",
+              content: prompt
+            }]
+          })
+        });
+  
+        const response = await request.json();  
+        choices = response.choices;
+      }     
     }
 
     if (choices && choices.length > 0) {
